@@ -1,7 +1,7 @@
 import type { ObjectId, SkyObject } from '../types';
 
-// Rounded educational reference values. Planet distances are mean distances FROM THE SUN,
-// not the constantly changing observer-to-object distance. See SOURCES below.
+// Values are rounded for the field journal; sources are listed below.
+// Planet distances are averages from the Sun, not distances from the player.
 export const OBJECTS: SkyObject[] = [
   {
     id: 'mercury',

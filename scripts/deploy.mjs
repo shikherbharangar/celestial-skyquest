@@ -1,4 +1,4 @@
-// Source deployment through Vercel's API. Credentials are never logged or copied into uploads.
+// Deploy directly to Vercel. Upload source files, never local credentials.
 import { existsSync } from 'node:fs';
 import { readFile, readdir, lstat } from 'node:fs/promises';
 import { resolve, relative, join } from 'node:path';

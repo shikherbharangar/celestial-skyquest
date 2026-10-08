@@ -19,7 +19,7 @@ export const demoProvider: IdentificationProvider = {
       }, 1700);
       signal?.addEventListener('abort', abort, { once: true });
     });
-    // Deliberately deterministic and labelled demo. No claim of image understanding.
+    // Practice always returns the selected target, regardless of the photo.
     const id = input.candidates[0];
     if (!id || input.demoSignal === 'weak')
       return { object: null, confidence: 0.28, fact: '', rarity: null, provider: 'demo' };
@@ -47,7 +47,7 @@ export async function identifySkyObject(
   return result;
 }
 
-// Calls our server; provider credentials never enter the client bundle.
+// Keep the Google key on the server. The browser only calls our API.
 export function createGemmaProvider(endpoint: string): IdentificationProvider {
   if (!endpoint.startsWith('/') || endpoint.startsWith('//'))
     throw new Error('Use a same-origin identification endpoint.');

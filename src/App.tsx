@@ -119,7 +119,7 @@ export default function App() {
     if (!mission) return;
     setGame((old) => launchMission(old, mission));
     playSound('launch');
-    setToast('Mission Architect! Your little dream earned +700 XP.');
+    setToast('Mission launched! Your plan earned +700 XP.');
   }
   function exportJournal() {
     const url = URL.createObjectURL(
@@ -412,22 +412,22 @@ export default function App() {
             <div className="about-brand">
               <Mochi mood="idle" />
               <p>
-                CELESTIAL turns looking up into a little adventure. Collect wonders, learn one
-                lovely fact, and dream up a mission.
+                Look up, find something new, and bring it back to your journal. Mochi will help you
+                learn about it and plan a mission.
               </p>
             </div>
             <div className="about-demo">
-              <span className="eyebrow">AN HONEST LITTLE DEMO</span>
+              <span className="eyebrow">BEFORE YOU HEAD OUT</span>
               <p>
-                Identification is simulated in Practice mode; those photos stay on your device. Live
-                Gemma mode sends a resized photo, current observation time, and optionally shared
-                approximate location to Google AI Studio. Choose that mode explicitly before
-                selecting a photo. AI suggestions can be wrong; they are not verified observations.
+                Practice mode lets you try the game without sending any photos. Choose Live Gemma to
+                have Google AI Studio look at a resized copy, along with the current time and your
+                approximate location if you shared it. AI can get things wrong, so treat a match as
+                a suggestion.
               </p>
               <p>
-                The local sky guide uses real astronomy calculations. Mission narratives are
-                generated from science-informed templates; launches are simulated. Live Gemma
-                requires a configured server key and a network connection.
+                The sky guide calculates where the planets are right now. Missions are imaginary
+                trips built around real space facts. Practice works offline once the app is saved;
+                Live Gemma needs an internet connection and a working server key.
               </p>
             </div>
             <div className="settings-list">

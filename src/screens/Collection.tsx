@@ -48,7 +48,7 @@ export function Collection({
         <h1>
           Your pocket <em>universe.</em>
         </h1>
-        <p>Every little light has a story. These are yours.</p>
+        <p>The places you’ve found, and the ones still waiting.</p>
       </div>
       <div className="collection-toolbar">
         <div className="segmented" role="group" aria-label="Collection category">
@@ -100,7 +100,7 @@ export function Collection({
                   <span>
                     {found.source === 'home'
                       ? 'Your adventure starts here'
-                      : 'A little wonder, kept forever'}
+                      : 'Saved in your field journal'}
                   </span>
                 ) : (
                   <>

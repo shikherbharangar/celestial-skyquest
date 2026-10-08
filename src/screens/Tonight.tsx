@@ -46,14 +46,14 @@ export function Tonight({
             <Sparkle className="heading-spark" />
           </h1>
           <p>
-            There’s a whole sky of wonders out there.
+            There’s plenty to find up there.
             <br className="desktop-break" />{' '}
             {discovered
-              ? 'There’s always another little light to follow.'
-              : 'Let’s find your first little piece of it.'}
+              ? 'You know these skies. Ready for another look?'
+              : 'Let’s see what you can spot tonight.'}
           </p>
           <div className="hero-note">
-            <Sparkle className="note-star" /> No spaceship required. Just a little curiosity.
+            <Sparkle className="note-star" /> No spaceship required. Mochi checked.
           </div>
         </div>
         <SkyScene target={target} />

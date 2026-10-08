@@ -1,4 +1,4 @@
-/** Re-encode locally to cap uploads and strip EXIF/GPS metadata before explicit live analysis. */
+// Resize before uploading. Re-encoding also removes EXIF data, including GPS tags.
 export async function prepareSkyPhoto(file: Blob): Promise<Blob> {
   let bitmap: ImageBitmap;
   try {

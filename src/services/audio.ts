@@ -32,6 +32,6 @@ export function playSound(kind: Sound) {
       oscillator.stop(time + 0.23);
     });
   } catch {
-    /* Audio is optional; keep gameplay available when unsupported. */
+    // A browser without audio should still be able to play.
   }
 }

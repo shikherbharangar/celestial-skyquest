@@ -123,7 +123,7 @@ export function plausibleCandidates(payload: Payload): ObjectId[] {
   );
   return payload.candidates.filter((id) => {
     const object = objectById(id);
-    // Fixed-star/constellation rise/set filtering is not implemented. Tell the model below.
+    // We don’t calculate rise/set times for stars yet; the prompt explains that limit.
     return !['planet', 'moon'].includes(object.kind) || sky.candidates.some((c) => c.id === id);
   });
 }
@@ -148,7 +148,7 @@ export function parseModelResult(text: string, candidates: ObjectId[]): Identifi
   )
     throw new ApiError(502, 'Mochi received an incomplete response. Please try again.');
   const id = candidates.find((id) => id === result.object);
-  // Model confidence is not a calibrated probability. Require distinct visual evidence too.
+  // A high score alone isn’t enough. The model must also report clear visual features.
   if (!id || result.confidence < 0.8 || !result.distinctiveFeatures)
     return {
       object: null,

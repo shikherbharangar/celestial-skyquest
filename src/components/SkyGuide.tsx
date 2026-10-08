@@ -133,13 +133,11 @@ export function SkyGuide({
             Phone photos rarely resolve planets. Binoculars or a telescope help your eyes more than
             a zoom slider.
           </li>
-          <li>
-            The practice identifier demonstrates the game; it doesn’t verify what’s in a photo.
-          </li>
+          <li>Practice lets you try the game. It won’t tell you what’s actually in your photo.</li>
         </ul>
       </details>
       <details className="guide-sources">
-        <summary>Our little science bookshelf</summary>
+        <summary>Where our sky facts come from</summary>
         <p>
           Reference facts are rounded. Sky positions use Astronomy Engine, current time, and
           approximate location.

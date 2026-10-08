@@ -152,7 +152,7 @@ export function Expedition({
         <p>
           {stage === 'scan'
             ? mode === 'live'
-              ? 'Gemma is looking for a little wonder…'
+              ? 'Gemma is taking a closer look…'
               : 'Mochi is checking the practice sky…'
             : 'Take a breath. Let your eyes settle into the dark.'}
         </p>
@@ -186,10 +186,10 @@ export function Expedition({
         </div>
         <span className="quiet-caption">
           {live.status === 'checking'
-            ? 'Checking the telescope link…'
+            ? 'Checking live mode…'
             : live.status === 'available'
-              ? 'Live photo analysis configured'
-              : 'Live connection not configured'}
+              ? 'Live mode is set up'
+              : 'Live mode isn’t set up yet'}
         </span>
         {live.status === 'unavailable' && (
           <button className="text-link" onClick={() => void live.refresh()}>
@@ -280,7 +280,7 @@ export function Expedition({
               {stage === 'weak'
                 ? 'Mochi isn’t sure yet. Try another shot with a steadier hand.'
                 : stage === 'scan'
-                  ? 'Following little lights. Connecting tiny dots.'
+                  ? 'Give Mochi a moment to look around.'
                   : object.hint}
             </p>
             {stage !== 'scan' && (
@@ -307,7 +307,7 @@ export function Expedition({
         <div className="scan-progress" role="status">
           <ScanLine size={18} />
           <span>
-            {mode === 'live' ? 'Checking your photo with Gemma…' : 'Reading the demo signal…'}
+            {mode === 'live' ? 'Checking your photo with Gemma…' : 'Checking the practice sky…'}
           </span>
           <span className="animated-dots">···</span>
         </div>
@@ -364,8 +364,8 @@ export function Expedition({
         </Tag>
         <p>
           {mode === 'live'
-            ? 'Faint dots and unclear photos may not be identifiable. Gemma only suggests a match when it finds distinctive visual evidence; live requests never fall back to a mock result. Our app does not store uploaded photos. Google’s data-use terms apply.'
-            : 'Practice identifies your selected target using a mock response, including uploaded photos. Practice photos stay on your device. Switch to Live Gemma to request real image analysis when connected.'}
+            ? 'A bright dot often isn’t enough to tell what you’ve found. If Gemma can’t make out clear features, we’ll ask you to try again. We don’t save your uploaded photo. Google’s data-use terms apply.'
+            : 'Practice always finds your selected target, even if you upload a different photo. It’s a way to try the game, and your photos stay on this device. Choose Live Gemma when you want a photo analysed.'}
         </p>
       </div>
     </div>

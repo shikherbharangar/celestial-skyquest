@@ -155,7 +155,9 @@ test('demo settings export a journal, control sound and reset only after confirm
   page,
 }) => {
   await page.getByRole('button', { name: /A COZY STARGAZING GAME/ }).click();
-  await expect(page.getByRole('dialog')).toContainText('Identification is simulated');
+  await expect(page.getByRole('dialog')).toContainText(
+    'Practice mode lets you try the game without sending any photos',
+  );
   await page.getByRole('button', { name: 'Gentle sound effects OFF' }).click();
   await expect(page.getByRole('button', { name: 'Gentle sound effects ON' })).toBeVisible();
   const download = page.waitForEvent('download');
@@ -284,7 +286,9 @@ test('live photo mode sends a resized image, labels the suggestion, and saves it
   page,
 }) => {
   await page.route('**/api/config', (route) =>
-    route.fulfill({ json: { liveAvailable: true, provider: 'gemma', model: 'gemma-4-26b-a4b-it' } }),
+    route.fulfill({
+      json: { liveAvailable: true, provider: 'gemma', model: 'gemma-4-26b-a4b-it' },
+    }),
   );
   let requestBody:
     | {
@@ -349,7 +353,7 @@ test('unconfigured live service leaves practice available and explains its statu
   await page.route('**/api/config', (route) => route.fulfill({ json: { liveAvailable: false } }));
   await page.getByRole('button', { name: 'Begin expedition' }).click();
   await expect(page.getByRole('button', { name: 'Live Gemma', exact: true })).toBeDisabled();
-  await expect(page.getByText('Live connection not configured')).toBeVisible();
+  await expect(page.getByText('Live mode isn’t set up yet')).toBeVisible();
   await page.getByRole('button', { name: 'Check connection' }).click();
   await expect(page.getByRole('button', { name: 'Live Gemma', exact: true })).toBeDisabled();
   await expect(page.getByRole('button', { name: 'Try a practice sky' })).toBeEnabled();

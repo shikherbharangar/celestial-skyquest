@@ -103,7 +103,7 @@ describe('science constraints for all mission choices', () => {
       const mission = buildMission(target, { crew: 'human', goal: 'build', risk: 'bold' }, 2);
       expect(mission.objective).toContain('Earth orbit');
       expect(mission.duration).toContain('concept');
-      expect(mission.explanation).toContain('does not attempt interstellar travel');
+      expect(mission.explanation).toContain('Flying there is beyond this mission');
     }
   });
   it('keeps reference data complete and solar distances explicitly labelled', () => {

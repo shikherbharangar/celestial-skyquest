@@ -16,15 +16,15 @@ Open the production build on a phone-sized screen. Sound is optional and starts 
 - **Offline:** Load the production app online once, let its service worker cache assets, then go offline and reload. The full practice loop remains available.
 - **Careful science:** Choose Andromeda. Missions observe it from Earth orbit, rather than pretending a spacecraft can reach it in six years.
 
-## Say this clearly to judges
+## Explain what’s real
 
-“The gameplay loop, persistence, astronomy calculations, animation, and offline PWA work. Practice identification is a labelled mock. Live Gemma mode and its backend are implemented; demonstrate a real request only after configuring and testing the Google AI Studio key. Mission concepts are generated locally from science-informed templates.”
+“Practice lets you try the whole game without going outside. Live Gemma can look at a photo, though a bright dot often isn’t enough to identify. The sky guide calculates real planet positions. Missions are imaginary trips, with real space facts guiding the choices.”
 
-Do not describe simulated confidence as image accuracy, demo collectibles as verified observations, or mission launches as real simulations of spacecraft dynamics. This build demonstrates the product and its integration boundary without depending on a live AI service during a presentation.
+Do not describe simulated confidence as image accuracy, demo collectibles as verified observations, or mission launches as real simulations of spacecraft dynamics. Use practice for the main walkthrough so a slow connection won’t interrupt it.
 
 ## Before presenting
 
 - Run `npm run build`, `npm test`, and `npm run test:e2e`.
 - Use the production preview/build for offline demonstrations; the development server does not install a service worker.
 - Test camera permissions and installation on the actual presentation device. The cloud validation covers Chromium file upload, not physical camera hardware or Safari.
-- For a live-AI presentation, configure the Vercel Production GEMMA_API_KEY and test a real, distinctive sky image. A configuration indicator or mocked integration test does not establish model accuracy. Show uncertainty for a generic point of light.
+- Live mode is connected on the public app. Before showing it, try the actual sky photo you plan to use. We’ve checked that a blank image returns no match; that doesn’t establish accuracy on real observations.

@@ -2,9 +2,9 @@
 
 Production is live at https://celestial-skyquest.vercel.app. The public API processed a blank image through Gemma 4 and correctly returned no match. Six public desktop/mobile checks passed for the complete game loop, persistence, offline practice, and automated accessibility. Real sky-photo identification accuracy and physical camera behavior still need evaluation. Do not paste credentials into chat or commit them.
 
-## 1. Local live verification
+## 1. Try live mode locally
 
-Create a Google AI Studio API key with access to a vision-capable Gemma model. The default model is `gemma-4-26b-a4b-it`; `GEMMA_MODEL` can select another available vision-capable Gemma model. Gemma receives the instruction text and image in one user message, without relying on unsupported structured-output/system-message features.
+Create a Google AI Studio API key with access to a vision-capable Gemma model. The default model is `gemma-4-26b-a4b-it`; `GEMMA_MODEL` can select another available vision-capable Gemma model. The request sends the photo and instructions together.
 
 Provide `GEMMA_API_KEY` through this cloud environment's secure settings, or an ignored local `.env.local`. In the cloud, save the added network destinations and secret requirement. Then restart:
 
@@ -16,7 +16,7 @@ The API listens only on loopback port 8787. Vite proxies same-origin `/api/*` re
 
 Go to **Begin expedition → Live Gemma**. Read the photo-sharing disclosure and choose a recent sky image. A resolved Moon image is a more meaningful first check than a bright dot. A generic point of light should yield uncertainty, even if Jupiter is your selected target. A detected object is labelled **AI suggested match**; it is not a verified observation or a calibrated confidence probability.
 
-Practice remains available if the credential, network, quota, or model is unavailable. It is a separate explicit mode; live failures never substitute a mock result.
+Practice remains available if the credential, network, quota, or model is unavailable. Choose Practice to keep playing if a live request fails. The app won’t switch modes for you.
 
 ## 2. Prepare the Vercel project
 
@@ -37,9 +37,9 @@ The script creates or reuses **celestial-skyquest** in that account. If its Prod
 
 Set the Google key directly in Vercel even if you also supplied it to the cloud environment. Cloud credentials may be proxy placeholders rather than transferable secrets. The deployment script deliberately never copies a cloud key into the hosting account.
 
-Rerun `npm run deploy`. It bundles each API entry with esbuild for Node 24, then uploads an explicit allowlist of source/build configuration, excludes `.env*`, `.git`, caches, test artifacts, and credentials, then waits for Vercel to report READY. It prints a real deployment URL only after receiving one from Vercel and checking `/api/config` there. No public URL is fabricated. If Deployment Protection prevents public access, configure the intended production audience in Vercel before presenting it publicly.
+Rerun `npm run deploy`. It bundles each API entry with esbuild for Node 24, then uploads an explicit allowlist of source/build configuration, excludes `.env*`, `.git`, caches, test artifacts, and credentials, then waits for Vercel to report READY. It checks `/api/config` at the Production URL before reporting success. If Deployment Protection prevents public access, configure the intended production audience in Vercel before presenting it publicly.
 
-## 3. Validate the deployed app
+## 3. Check the deployed app
 
 - Verify Tonight loads over HTTPS on the returned production URL.
 - Complete a practice discovery and mission, then reload to check persistence.
@@ -56,4 +56,4 @@ Photos are decoded/resized on the device to at most 1568 pixels on the longest s
 
 The small in-memory limiter allows six requests per minute per hashed client address and two simultaneous model calls per function instance. Serverless instances do not share those counters: configure provider-side quotas or Vercel protection for a large public audience. A conservative prompt and validation reduce unsupported matches but cannot establish scientific accuracy; evaluate real sky images before making accuracy claims.
 
-A credentialed Gemma 4 text request succeeded during setup. A blank-image check exercises the real provider separately from the automated tests, which use explicit provider fixtures. Public deployment and real sky-photo accuracy still require separate verification.
+The deployed app has passed a real Gemma request with a blank image and six public browser checks. Automated API tests use sample provider responses so they can run without a key. Neither check measures how reliably Gemma identifies real sky photos.

@@ -2632,7 +2632,7 @@ button {
   font-family: var(--display);
   font-size: 16px;
   line-height: 1.65;
-  color: #5c706f;
+  color: #40564c;
 }
 .about-demo {
   background: #e4e3d0;
@@ -2647,7 +2647,7 @@ button {
   font-size: 10px;
   line-height: 1.8;
   margin-top: 8px;
-  color: #637970;
+  color: #40564c;
 }
 .settings-list {
   margin-top: 20px;

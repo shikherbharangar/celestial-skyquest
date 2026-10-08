@@ -45,7 +45,7 @@ export function Missions({
         <h1>
           Next stop, <em>what if?</em>
         </h1>
-        <p>You found a little wonder. Now dream up a way to explore it.</p>
+        <p>You’ve found it. How would you get a closer look?</p>
       </div>
       {game.missions.length === 0 && targets.length === 0 ? (
         <div className="mission-empty">
@@ -123,8 +123,8 @@ export function Missions({
         </>
       )}
       <p className="mission-footnote">
-        <Orbit size={16} /> These are playful, scientifically informed mission concepts. Launches
-        and rewards are simulated.
+        <Orbit size={16} /> These missions are make-believe, with real space facts to guide them.
+        Launches and rewards happen only in the game.
       </p>
     </div>
   );
@@ -268,7 +268,7 @@ export function MissionBuilder({
               <br />
               Real science underneath.
               <br />
-              <span>Mission times are illustrative, not computed trajectories.</span>
+              <span>Trip times are estimates for the game, not calculated flight paths.</span>
             </p>
           </div>
         </aside>
